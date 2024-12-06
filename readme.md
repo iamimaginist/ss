@@ -413,6 +413,46 @@ xlabel('--n');
 ylabel('Amplitude');
 grid on;
 ```
+exp 6
+```
+t = -10:0.1:10;
+f=0.1;
+x = 4*cos(2*pi*f*t) + 12*cos(20*pi*f*t);
+subplot(3,1,1);
+plot(t,x);
+title('input signal');
+xlabel('Time index');
+ylabel('Amplitude');
+y = fft(x);
+mag = abs(y);
+subplot(3,1,2);
+plot(mag);
+title('Mag of the signal');
+xlabel('Freq index');
+ylabel('magnitude');
+PS = angle(y);
+subplot(3,1,3);
+plot(PS);
+title('Phase of Signals');
+xlabel('Freq index');
+ylabel('Phase');
+```
+exp7
+```
+syms t;
+a=1;
+x=exp(-a*t);
+y=laplace(x);
+figure(1);
+ezplot(y);
+syms s;
+f1 = s;
+f2 = (s+1)*(s-1);
+f = f1/f2;
+z = ilaplace (f);
+figure(2);
+ezplot(z);
+```
 exp8
 ```
 syms n;
